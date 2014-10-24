@@ -19,7 +19,7 @@ In case you do not want to download the prepared image, you can built the image 
 
         sudo apt-get install paprefs
 
-2. Launch PulseAudio Preferences, go to the *"Network Server"* tab, and check the *"Enable network access to local sound devices"* and *"Don't require authentication"* checkboxes
+2. Launch PulseAudio Preferences, go to the *"Network Server"* tab, and check the *"Enable network access to local sound devices"*
 
 3. Restart PulseAudio
 
@@ -42,41 +42,15 @@ In case you do not want to download the prepared image, you can built the image 
 
         git clone https://github.com/tomparys/docker-skype-pulseaudio.git && cd docker-skype-pulseaudio
 
-6. Build the container
+6. Build the container (this will create an image named 'skype-pulseaudio')
 
-        sudo docker build -t skype .
+	make
 
-7. Create an entry in your .ssh/config file for easy access. It should look like this:
-        
-        Host docker-skype
-          User      docker
-          Port      55555
-          HostName  127.0.0.1
-          RemoteForward 64713 localhost:4713
-          ForwardX11 yes
-          
-    (Optional) I recommend creating an SSH key without a password to be used to connect to this container.
-    So in case you used a non-standard filename for your SSH key, add this:
-   
-          IdentityFile /path/to/your/ssh/key
+7. Run skype
 
-8. Run the container and forward the appropriate port
+	make run
 
-        sudo docker run -d -p 55555:22 skype
-
-9. (Optional) Copy an SSH public key
-
-    If you plan to use an SSH key, copy the public key to the docker container using the following command. The password is `docker`.
-
-        ssh-copy-id -i /path/to/your/public/key.pub docker-skype
-
-10. Connect via SSH and launch Skype using the provided PulseAudio wrapper script
-
-        ssh docker-skype skype-pulseaudio
-     
-    In case you didn't copy the SSH public key, the password is `docker`.
-
-11. Go use Skype in a safe container!
+8. Go use Skype in a safe container!
 
 
 Frequently Asked Questions
