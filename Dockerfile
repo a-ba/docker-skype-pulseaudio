@@ -49,4 +49,4 @@ RUN chmod 755 /usr/local/bin/skype-pulseaudio
 EXPOSE 22
 
 # Start SSH
-ENTRYPOINT ["/usr/sbin/sshd",  "-D"]
+CMD ["/usr/sbin/sshd",  "-D"]
