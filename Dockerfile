@@ -15,10 +15,10 @@ RUN apt-get update
 RUN apt-get install -y libpulse0:i386 pulseaudio:i386
 
 # We need ssh to access the docker container, wget to download skype
-RUN apt-get install -y openssh-server wget 
+RUN apt-get install -y openssh-server
 
 # Install Skype
-RUN wget http://download.skype.com/linux/skype-debian_4.3.0.37-1_i386.deb -O /usr/src/skype.deb
+ADD http://download.skype.com/linux/skype-debian_4.3.0.37-1_i386.deb /usr/src/skype.deb
 RUN dpkg -i /usr/src/skype.deb || true
 RUN apt-get install -fy						# Automatically detect and install dependencies
 
