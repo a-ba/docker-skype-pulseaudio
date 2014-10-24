@@ -61,3 +61,18 @@ There are a couple of reasons you might want to restrict Skype's access to your 
 * It is proprietary Microsoft software
 * The skype binary is disguised against decompiling, so nobody is (still) able to reproduce what it really does.
 * It produces encrypted traffic even when you are not actively using Skype.
+
+
+Is is fully safe then?
+----------------------
+Hell no!
+
+* the X11 protocol is **not secure** at all, the skype process has full access
+  to your display server. Especially it can take screenshots and record
+  keystrokes. This can be mitigated by isolating the skype process in a
+  separate display server (like a headless vnc server).
+* the default iptables rules set by the docker daemon is to allow any input
+  connection from the DOCKER interface. Insecured services running on your host
+  are vulnerable.
+* docker is not mature, there might be ways to escalate privileges
+
