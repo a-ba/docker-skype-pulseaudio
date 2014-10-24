@@ -29,7 +29,6 @@ RUN echo "docker:docker" | chpasswd
 
 # Create OpenSSH privilege separation directory, enable X11Forwarding
 RUN mkdir -p /var/run/sshd
-RUN echo X11Forwarding yes >> /etc/ssh/ssh_config
 
 # Prepare ssh config folder so we can upload SSH public key later
 RUN mkdir /home/docker/.ssh
