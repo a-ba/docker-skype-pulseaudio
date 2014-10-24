@@ -15,13 +15,11 @@ Building Instructions
 
 In case you do not want to download the prepared image, you can built the image yourself using these following instructions.
 
-1. Install [PulseAudio Preferences](http://freedesktop.org/software/pulseaudio/paprefs/). Debian/Ubuntu users can do this:
+1. Enable network access to your local PulseAudio devices
 
-        sudo apt-get install paprefs
+	gconftool --type bool --set /system/pulseaudio/modules/remote-access/enabled true
 
-2. Launch PulseAudio Preferences, go to the *"Network Server"* tab, and check the *"Enable network access to local sound devices"*
-
-3. Restart PulseAudio
+2. Restart PulseAudio
 
         sudo service pulseaudio restart
    
@@ -36,21 +34,21 @@ In case you do not want to download the prepared image, you can built the image 
     
     > Cookie: ReallyLongAlphanumericString
 
-4. [Install Docker](http://docs.docker.io/en/latest/installation/) if you haven't already
+3. [Install Docker](http://docs.docker.io/en/latest/installation/) if you haven't already
 
-5. Clone this repository and get right in there
+4. Clone this repository and get right in there
 
         git clone https://github.com/tomparys/docker-skype-pulseaudio.git && cd docker-skype-pulseaudio
 
-6. Build the container (this will create an image named 'skype-pulseaudio')
+5. Build the container (this will create an image named 'skype-pulseaudio')
 
 	make
 
-7. Run skype
+6. Run skype
 
 	make run
 
-8. Go use Skype in a safe container!
+7. Go use Skype in a safe container!
 
 
 Frequently Asked Questions
