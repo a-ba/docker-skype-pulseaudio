@@ -30,7 +30,7 @@ home: .stamp-home
 
 # run skype
 run: all
-	cp ~/.pulse-cookie  $(TMP_COOKIE)
+	cp ~/.config/pulse/cookie  $(TMP_COOKIE)
 	chmod og+r $(TMP_COOKIE)
 	bash launch.sh
 
